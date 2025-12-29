@@ -12,11 +12,9 @@ POST -  CRIAR
 PUT/PATCH - ATUALIZAR -> PUT PARA ATUALIZAR MAIS DE UM DADO, PATCH PARA ATUALIZAR SOMENTE UM DADO
 GET -  PARA LISTAR
 DELETE - DELETAR 
-
-
-
-
 */
+
+
 const routers = new Router();
 
 routers.post('/users', UserController.store);
