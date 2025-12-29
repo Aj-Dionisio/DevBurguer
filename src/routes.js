@@ -4,6 +4,7 @@ import { Router} from 'express'
 // import User from './app/models/user.js';
 import UserController from './controllers/UserController.js';
 import SessionController from './controllers/SessionController.js';
+import ProductController from './controllers/ProductController.js';
 
 /*
 METODOS HTTP:
@@ -19,5 +20,5 @@ const routers = new Router();
 
 routers.post('/users', UserController.store);
 routers.post('/session',SessionController.store);
-
+routers.post('/products',ProductController.store);
 export default routers;
