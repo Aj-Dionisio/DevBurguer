@@ -16,7 +16,7 @@ module.exports = {
           allowNull:false,
       },
       price:{
-        type: Sequelize.STRING(),
+        type: Sequelize.DECIMAL(10, 2),
         allowNull:false,
       },
       path:{/*ONDE SERÁ FEITO O TRATAMENDO DAS IMAGENS DOS PRODUTOS*/

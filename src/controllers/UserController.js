@@ -15,8 +15,8 @@ OS METODOS  NÁO PODEM SE REPETIR
 
 import User from "../app/models/User.js";
 import * as Yup from "yup";
-import bcrypt from "bcrypt"
-import Product from "../app/models/Product.js";
+import bcrypt from "bcrypt";
+
 
 
 class UserController {
@@ -37,7 +37,7 @@ class UserController {
         
         const {name, email,password, admin} = req.body;
 
-        const existUser = await Product.findOne({
+        const existUser = await User.findOne({
             where:{
                 email
             }

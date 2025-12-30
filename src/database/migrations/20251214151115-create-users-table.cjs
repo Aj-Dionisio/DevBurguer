@@ -1,4 +1,4 @@
-'use strict';
+
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -13,6 +13,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique:true,
       },
       email: {
         type: Sequelize.STRING,
