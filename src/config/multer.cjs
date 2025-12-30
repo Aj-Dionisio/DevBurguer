@@ -4,7 +4,7 @@ const { v4 } = require("uuid");
 
 
 module.exports ={
-    Storage: multer.diskStorage({
+    storage: multer.diskStorage({
         destination: resolve(__dirname,'..','..','uploads'),
         filename:(_request, file, callback) =>{
             const uniqueName = v4().concat(`-${ file.originalname}`)
@@ -12,4 +12,4 @@ module.exports ={
         }
 
     })
-}
+};

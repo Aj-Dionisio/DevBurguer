@@ -30,7 +30,8 @@ class ProductController {
     if (existProduct) {
       return res.status(400).json({ message: 'Product already cadastrated!' });
     }
-    console.log({ name, price: Number(price), category, path: path || null });
+   
+        console.log('Arquivo recebido:', req.file);
 
     const product = await Product.create({
       name,

@@ -19,7 +19,7 @@ DELETE - DELETAR
 
 const routers = new Router();
 
-const upload = multer(multerConfig)
+const upload = multer(multerConfig )
 
 routers.post('/users', UserController.store);
 routers.post('/session', SessionController.store);
