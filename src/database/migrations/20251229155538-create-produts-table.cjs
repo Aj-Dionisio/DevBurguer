@@ -15,25 +15,27 @@ module.exports = {
         allowNull: false,
       },
       price: {
-        type: Sequelize.DECIMAL(10, 2),
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       path: {
         /*ONDE SERÁ FEITO O TRATAMENDO DAS IMAGENS DOS PRODUTOS*/
-        type: Sequelize.STRING(),
-        allowNull: false,
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       category: {
-        type: Sequelize.STRING(),
+        type: Sequelize.STRING,
         allowNull: false,
       },
       created_at: {
-        type: Sequelize.DATE(),
+        type: Sequelize.DATE,
         allowNull: false,
+        defaultValue: Sequelize.NOW,
       },
       updated_at: {
-        type: Sequelize.DATE(),
+        type: Sequelize.DATE,
         allowNull: false,
+        defaultValue: Sequelize.NOW,
       },
     });
   },
