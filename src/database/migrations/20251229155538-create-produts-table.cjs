@@ -21,7 +21,7 @@ module.exports = {
       path: {
         /*ONDE SERÁ FEITO O TRATAMENDO DAS IMAGENS DOS PRODUTOS*/
         type: Sequelize.STRING,
-        allowNull: true,
+        allowNull: true, // PASSAMOS PARA TRUE PARA ACEITAR O PARAMETRO VAZIO
       },
       category: {
         type: Sequelize.STRING,
