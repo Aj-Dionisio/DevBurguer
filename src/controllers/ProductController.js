@@ -12,14 +12,14 @@ class ProductController {
     try {
       schema.validateSync(req.body, { abortEarly: false });
     } catch (err) {
-      return res
-        .status(400)
-        .json({
-          error: err.errors,
-        }); /*passando o erro para o usuário, dessa forma aparece na tela o que está errado*/
+      return res.status(400).json({
+        error: err.errors,
+      }); /*passando o erro para o usuário, dessa forma aparece na tela o que está errado*/
     }
 
-    const { name, price, category, path } = req.body;
+    const { name, price, category } = req.body;
+    const path = req.file?.filename;
+    
 
     const existProduct = await Product.findOne({
       where: {
@@ -30,12 +30,13 @@ class ProductController {
     if (existProduct) {
       return res.status(400).json({ message: 'Product already cadastrated!' });
     }
+    console.log({ name, price: Number(price), category, path: path || null });
 
     const product = await Product.create({
       name,
-      price,
+      price: Number(price),
       category,
-      path,
+      path: path || null,
     });
 
     return res.status(201).json({

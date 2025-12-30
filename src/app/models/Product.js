@@ -10,7 +10,10 @@ class Product extends Model {
         },
         price: DataTypes.DECIMAL(10, 2),
         category: DataTypes.STRING,
-        path: DataTypes.STRING,
+        path:{
+              type: DataTypes.STRING,
+              allowNull: true,
+        }, 
       },
       {
         sequelize,
