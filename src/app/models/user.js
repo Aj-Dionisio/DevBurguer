@@ -4,7 +4,8 @@ class User extends Model {
   static init(sequelize) {
     super.init(
       {
-        id: { /*gerando o id automaticamente*/
+        id: {
+          /*gerando o id automaticamente*/
           type: DataTypes.UUID,
           defaultValue: DataTypes.UUIDV4,
           primaryKey: true,
@@ -18,11 +19,9 @@ class User extends Model {
         sequelize,
         tableName: 'users',
         underscored: true,
-        timestamps: true,// garante created_at e updated_at automáticos
+        timestamps: true, // garante created_at e updated_at automáticos
       },
     );
-
-    
   }
 }
 

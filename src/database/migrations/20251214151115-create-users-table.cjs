@@ -1,5 +1,3 @@
-
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -13,7 +11,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique:true,
+        unique: true,
       },
       email: {
         type: Sequelize.STRING,

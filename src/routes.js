@@ -1,6 +1,6 @@
 // criação das rotas da nossa aplicação
 
-import { Router} from 'express'
+import { Router } from 'express';
 // import User from './app/models/user.js';
 import UserController from './controllers/UserController.js';
 import SessionController from './controllers/SessionController.js';
@@ -15,10 +15,9 @@ GET -  PARA LISTAR
 DELETE - DELETAR 
 */
 
-
 const routers = new Router();
 
 routers.post('/users', UserController.store);
-routers.post('/session',SessionController.store);
-routers.post('/products',ProductController.store);
+routers.post('/session', SessionController.store);
+routers.post('/products', ProductController.store);
 export default routers;
