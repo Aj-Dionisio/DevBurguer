@@ -2,7 +2,6 @@ import * as Yup from 'yup';
 import User from '../app/models/User.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import authConfig from '../config/auth.js';
 
 class Sessioncontroller {
   async store(req, res) {
@@ -56,8 +55,8 @@ class Sessioncontroller {
 
     const token = jwt.sign(
       { id: existUser.id },
-      authConfig.secret,
-      { expiresIn: authConfig.expiresIn },
+      'fe39382918216e44b56ca743c19e4e15',
+      { expiresIn: '7d' },
     );
 
     //const token = jwt.sing({aqui colocamos as informações dos usuários que queremos que sejam verificados},'aqui colocamos a signature/secret que ira informar se esse token é valido ou não',{aqui colocamos o tempo em que esse token vai expirar 5 a 10 min para bancos - 5 a 7 dias para aplicativos "sem necessida de segurança maior"})
