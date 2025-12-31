@@ -1,3 +1,4 @@
+import { Sequelize } from "sequelize"; 
 import { DataTypes, Model } from 'sequelize';
 
 class Product extends Model {
@@ -13,7 +14,14 @@ class Product extends Model {
         path:{
               type: DataTypes.STRING,
               allowNull: true,
-        }, 
+        },
+
+        url:{ // para fazer a listagem dos prodtuos
+          type: Sequelize.VIRTUAL,//metodo do sequelize, foi necessário fazer a importação do sequelize novamente 
+          get(){
+            return `http://localhost:3001/product-file/${this.path}` // para apresentar a url da imagem, ao subir nosso projeto teremos de substituir o localhost pela url da aplicação
+          }
+        }
       },
       {
         sequelize,
@@ -26,3 +34,7 @@ class Product extends Model {
 }
 
 export default Product;
+
+
+// campo virtual
+// GET -> PRODUTO -> MONTA O PRODUTO COM O SEUS DADOS

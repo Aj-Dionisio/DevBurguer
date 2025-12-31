@@ -18,7 +18,8 @@ class ProductController {
     }
 
     const { name, price, category } = req.body;
-    const path = req.file?.filename;
+    // const path = req.file?.filename; => estava retornando path como null
+    const filename = req.file?.filename || null;
     
 
     const existProduct = await Product.findOne({
@@ -36,7 +37,8 @@ class ProductController {
       name,
       price: Number(price),
       category,
-      path: path || null,
+    //   path: path || null, => estava retornando path como null
+        path: filename,
     });
 
     return res.status(201).json({
@@ -46,6 +48,12 @@ class ProductController {
       category: product.category,
       path: product.path,
     });
+  }
+
+  async index(_req, res) { // para fazer a listagem dos nossos produtos
+    const product = await Product.findAll();
+
+    return res.status(200).json(product)
   }
 }
 

@@ -24,7 +24,7 @@ const upload = multer(multerConfig )
 routers.post('/users', UserController.store);
 routers.post('/session', SessionController.store);
 routers.post('/products',upload.single("file"), ProductController.store);
-
+routers.get('/products',ProductController.index );//para listar os nossos produtos
 
 
 export default routers;
