@@ -36,7 +36,7 @@ class CategoriesController {
     });
 
     return res.status(201).json({
-      name: newcategorie.name,
+      name: newcategorie.name
       
     });
   }
