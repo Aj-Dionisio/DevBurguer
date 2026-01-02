@@ -4,8 +4,9 @@ import Sequelize from 'sequelize';
 import databaseConfig from '../config/database.cjs';
 import User from '../app/models/User.js';
 import Products from '../app/models/Product.js';
+import Categorie from '../app/models/Categories.js';
 
-const models = [User, Products]; //ONDE FAZEMOS O LINK DO MODELS COM O DB
+const models = [User, Products, Categorie]; //ONDE FAZEMOS O LINK DO MODELS COM O DB
 
 class Database {
   constructor() {
