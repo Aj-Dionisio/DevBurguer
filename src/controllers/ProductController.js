@@ -50,8 +50,10 @@ class ProductController {
     });
   }
 
-  async index(_req, res) { // para fazer a listagem dos nossos produtos
+  async index(_req, res) {// para fazer a listagem dos nossos produtos
+
     const product = await Product.findAll();
+
 
     return res.status(200).json(product)
   }
