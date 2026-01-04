@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize"; 
+
 import { DataTypes, Model } from 'sequelize';
 
 class Categorie extends Model {
