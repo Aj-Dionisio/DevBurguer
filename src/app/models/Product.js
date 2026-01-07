@@ -30,6 +30,16 @@ class Product extends Model {
         timestamps: true, // garante created_at e updated_at automáticos
       },
     );
+
+    return this
+
+  }
+
+  static associete(models){
+    this.belongsTo(models.category, {
+      foreignKey: "category_id",
+      as: "category",
+    })
   }
 }
 

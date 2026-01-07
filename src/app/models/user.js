@@ -22,6 +22,9 @@ class User extends Model {
         timestamps: true, // garante created_at e updated_at automáticos
       },
     );
+
+    return this
+
   }
 }
 
