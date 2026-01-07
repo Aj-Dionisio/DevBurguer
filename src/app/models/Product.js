@@ -10,7 +10,7 @@ class Product extends Model {
           unique: true,
         },
         price: DataTypes.DECIMAL(10, 2),
-        category: DataTypes.STRING,
+       
         path:{
               type: DataTypes.STRING,
               allowNull: true,
@@ -35,14 +35,13 @@ class Product extends Model {
 
   }
 
-  static associete(models){
-    this.belongsTo(models.category, {
-      foreignKey: "category_id",
-      as: "category",
-    })
+  static associate(models){
+    this.belongsTo(models.Categorie, {
+      foreignKey:"category_id",
+      as: "category", 
+    });
   }
 }
-
 export default Product;
 
 

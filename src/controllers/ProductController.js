@@ -6,7 +6,7 @@ class ProductController {
     const schema = Yup.object({
       name: Yup.string().required(),
       price: Yup.number().required(),
-      category: Yup.string().required(),
+      category_id: Yup.string().required(),
     });
 
     try {
@@ -17,7 +17,7 @@ class ProductController {
       }); /*passando o erro para o usuário, dessa forma aparece na tela o que está errado*/
     }
 
-    const { name, price, category } = req.body;
+    const { name, price, category_id } = req.body;
     // const path = req.file?.filename; => estava retornando path como null
     const filename = req.file?.filename || null;
     
@@ -36,7 +36,7 @@ class ProductController {
     const product = await Product.create({
       name,
       price: Number(price),
-      category,
+      category_id,
     //   path: path || null, => estava retornando path como null
         path: filename,
     });
@@ -45,7 +45,7 @@ class ProductController {
       Id: product.id,
       name: product.name,
       price: product.price,
-      category: product.category,
+      category_id: product.category_id,
       path: product.path,
     });
   }
