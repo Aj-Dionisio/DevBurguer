@@ -54,10 +54,10 @@ class ProductController {
   async index(_req, res) {// para fazer a listagem dos nossos produtos
 
     const product = await Product.findAll({
-      include: {
+      include: {/**/
         model: Categorie,
         as: "category",
-        attributes: ['id ','name'] /*quais dados/ atibutos eu quero trazer*/
+        attributes: ['id','name'] /*quais dados/ atibutos que eu quero trazer*/
       },
     });
 

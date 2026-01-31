@@ -14,7 +14,8 @@ class CategoriesController {
         error: err.errors,
       }); /*passando o erro para o usuário, dessa forma aparece na tela o que está errado*/
     }
-
+    
+    
     const { name } = req.body;
 
     

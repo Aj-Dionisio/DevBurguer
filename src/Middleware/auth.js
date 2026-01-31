@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import authConfig from './../config/auth.js'
+import { defaults } from 'pg';
 
 
 const authMiddleware = (req, res, next) => {
@@ -18,8 +19,9 @@ const authMiddleware = (req, res, next) => {
         if(error){
             throw Error();
         }
-
+        
         req.userID = decoded.id // criando um parametro/campo de nome userID detro do request
+        req.userIsAdmin = decoded.admin;
     });
     
   } catch (_error) {
