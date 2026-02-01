@@ -31,7 +31,7 @@ routers.use(authMiddleware); // todas as rotas a partir daqui vão exigir o toke
 routers.post('/products',adminMiddleware,upload.single("file"), ProductController.store);/*PUT -> /products/5 SENDO 5 O ID A SER ATUALIZADO */
 routers.put('/products/:id',adminMiddleware,upload.single("file"), ProductController.update);
 routers.get('/products', ProductController.index );//para listar os nossos produtos
-routers.post('/categories',adminMiddleware, CategoriesController.store);
+routers.post('/categories',adminMiddleware,upload.single("file"), CategoriesController.store);
 routers.get('/categories', CategoriesController.index )
 
 export default routers;

@@ -17,6 +17,7 @@ class CategoriesController {
     
     
     const { name } = req.body;
+    const filename = req.file?.filename || null; 
 
     
 
@@ -33,11 +34,14 @@ class CategoriesController {
 
     const newcategorie = await Categorie.create({ // criando a nova categoria
       name,
+      path: filename,
      
     });
 
     return res.status(201).json({
-      name: newcategorie.name
+      name: newcategorie.name,
+      path: newcategorie.path, 
+      url: newcategorie.url,
       
     });
   }
