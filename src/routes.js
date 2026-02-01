@@ -28,7 +28,8 @@ routers.post('/users', UserController.store);
 routers.post('/session', SessionController.store);
 
 routers.use(authMiddleware); // todas as rotas a partir daqui vão exigir o token
-routers.post('/products',adminMiddleware,upload.single("file"), ProductController.store);
+routers.post('/products',adminMiddleware,upload.single("file"), ProductController.store);/*PUT -> /products/5 SENDO 5 O ID A SER ATUALIZADO */
+routers.put('/products/:id',adminMiddleware,upload.single("file"), ProductController.update);
 routers.get('/products', ProductController.index );//para listar os nossos produtos
 routers.post('/categories',adminMiddleware, CategoriesController.store);
 routers.get('/categories', CategoriesController.index )

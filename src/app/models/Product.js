@@ -16,6 +16,8 @@ class Product extends Model {
               allowNull: true,
         },
 
+        offer: Sequelize.BOOLEAN, 
+
         url:{ // para fazer a listagem dos prodtuos
           type: Sequelize.VIRTUAL,//metodo do sequelize, foi necessário fazer a importação do sequelize novamente 
           get(){
