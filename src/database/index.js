@@ -1,6 +1,7 @@
 /*confiqurando o sequelize com o db e com a model*/
 
 import Sequelize from 'sequelize';
+import mongoose from 'mongoose'
 import databaseConfig from '../config/database.cjs';
 import User from '../app/models/User.js';
 import Products from '../app/models/Product.js';
@@ -12,6 +13,7 @@ class Database {
   constructor() {
     /*sempre que a classe é iniciada o metodo é chamado*/
     this.init(); /*this faz referencia a classe Database*/
+    this.mongo();/*chamando o metodo de classe*/
   }
 
   init() {
@@ -19,6 +21,10 @@ class Database {
       databaseConfig,
     ); /*this = Database, essa é a conxão com o db*/
     models.map((model) => model.init(this.connection)).map(model => model.associate && model.associate(this.connection.models));
+  }
+
+  mongo(){
+    this.mongooseConnection = mongoose.connect('mongodb://localhost:27017/dev-burguer');
   }
 }
 

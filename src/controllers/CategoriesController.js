@@ -46,6 +46,59 @@ class CategoriesController {
     });
   }
 
+    async update(req, res) {
+    const schema = Yup.object({
+      name: Yup.string(),
+    });
+
+    try {
+      schema.validateSync(req.body, { abortEarly: false });
+    } catch (err) {
+      return res.status(400).json({
+        error: err.errors,
+      }); /*passando o erro para o usuário, dessa forma aparece na tela o que está errado*/
+    }
+    
+    
+    const { name } = req.body;
+    const {id} = req.params;
+
+    let path
+    if(req.file){
+      const filename = req.file?.filename || null;
+      path = filename
+    }
+     
+
+    
+
+    const existCategory = await Categorie.findOne({
+      where: {
+        name,
+      },
+    });
+
+    if (existCategory) { // validando que não está repetido
+      return res.status(400).json({ message: 'Category already cadastrated!' });
+    }
+   
+await Categorie.update({ // criando a nova categoria
+        name,
+        path,
+      },{
+          where:{
+            id,
+          } 
+
+        },
+      
+  );
+
+    return res.status(200).json();
+  }
+
+  
+
   async index(_req, res) {// para fazer a listagem dos nossos produtos
 
     const categorie = await Categorie.findAll();

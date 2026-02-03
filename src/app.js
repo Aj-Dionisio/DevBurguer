@@ -7,6 +7,7 @@ const app = express(); //informando que todas as funcionalidades disponiveis no 
 
 app.use(express.json()); // informando para o express que vamos usar json
 app.use(express.urlencoded({ extended: true }));
+app.use('/categories-file', fileRoutersConfig);
 app.use('/product-file', fileRoutersConfig); // configuração para que, quando jogar a url da imagem bata na pasta de upload, assim aparecendo a imagem no navegador
 
 app.use(routers);
