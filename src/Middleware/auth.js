@@ -20,7 +20,8 @@ const authMiddleware = (req, res, next) => {
             throw Error();
         }
         
-        req.userID = decoded.id // criando um parametro/campo de nome userID detro do request
+        req.userId = decoded.id;// criando um parametro/campo de nome userID detro do request
+        req.userName = decoded.name;
         req.userIsAdmin = decoded.admin;
     });
     

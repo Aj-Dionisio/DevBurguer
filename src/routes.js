@@ -10,6 +10,7 @@ import multerConfig from '../src/config/multer.cjs'
 import authMiddleware from './Middleware/auth.js'
 import CategoriesController from './controllers/CategoriesController.js';
 import adminMiddleware from './Middleware/admin.js';
+import OrderController from './controllers/OrderController.js';
 
 /*
 METODOS HTTP:
@@ -28,11 +29,12 @@ routers.post('/users', UserController.store);
 routers.post('/session', SessionController.store);
 
 routers.use(authMiddleware); // todas as rotas a partir daqui vão exigir o token
-routers.post('/products',adminMiddleware,upload.single("file"), ProductController.store);/*PUT -> /products/5 SENDO 5 O ID A SER ATUALIZADO */
-routers.put('/products/:id',adminMiddleware,upload.single("file"), ProductController.update);
+routers.post('/products',adminMiddleware,upload.single("file"), ProductController.store);
+routers.put('/products/:id',adminMiddleware,upload.single("file"), ProductController.update);/*PUT -> /products/5 SENDO 5 O ID A SER ATUALIZADO */
 routers.get('/products', ProductController.index );//para listar os nossos produtos
 routers.post('/categories',adminMiddleware,upload.single("file"), CategoriesController.store);
 routers.put('/categories/:id',adminMiddleware,upload.single("file"), CategoriesController.update);
 routers.get('/categories', CategoriesController.index )
+routers.post('/orders',adminMiddleware, OrderController.store);
 
 export default routers;

@@ -54,7 +54,7 @@ class Sessioncontroller {
     }
 
     const token = jwt.sign(
-      { id: existUser.id, admin: existUser.admin },
+      { id: existUser.id, admin: existUser.admin, name: existUser.name },
       'fe39382918216e44b56ca743c19e4e15',
       { expiresIn: '7d' },
     );
