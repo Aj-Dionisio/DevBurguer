@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import Product from "../app/models/Product.js"
 import Categories from "../app/models/Categories.js"
+import Order from "../app/Schemas/Order.js"
 
 
 class OrderController {
@@ -63,7 +64,11 @@ async store(req, res) {
             products: mapedProducts,
             status: "Pedido realizado"
         }
-                return res.status(201).json(order);
+
+        const newOrder = await Order.create(order)
+
+
+                return res.status(201).json(newOrder);
             
 };
 }
