@@ -35,6 +35,8 @@ routers.get('/products', ProductController.index );//para listar os nossos produ
 routers.post('/categories',adminMiddleware,upload.single("file"), CategoriesController.store);
 routers.put('/categories/:id',adminMiddleware,upload.single("file"), CategoriesController.update);
 routers.get('/categories', CategoriesController.index )
-routers.post('/orders',adminMiddleware, OrderController.store);
+routers.post('/orders', OrderController.store);
+routers.put('/orders/:id',adminMiddleware, OrderController.update)
+routers.get('/orders', OrderController.index);
 
 export default routers;

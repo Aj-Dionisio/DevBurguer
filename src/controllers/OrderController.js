@@ -71,6 +71,43 @@ async store(req, res) {
                 return res.status(201).json(newOrder);
             
 };
+
+async update(req,res){
+
+  const schema = Yup.object({
+          status: Yup.string().required()
+          });
+
+          try {
+            schema.validateSync(req.body, { abortEarly: false, strict: true });
+          } catch (err) {
+            return res.status(400).json({
+              error: err.errors,
+            }); /*passando o erro para o usuário, dessa forma aparece na tela o que está errado*/
+          }
+
+          const { status } = req.body;
+          const { id } = req.params;
+
+          try{
+            await Order.updateOne({_id: id}, { status });
+          }catch(err){
+            return res.status(400).json({error: err.message});
+          }
+
+           
+
+
+          return res.status(200).json("Status updated successufully")
+  }
+
+  async index(_req, res){
+    const orders = await Order.find();
+    
+    return res.status(200).json(orders);
+
+
+  }
 }
 
 
