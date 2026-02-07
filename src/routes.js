@@ -7,9 +7,9 @@ import SessionController from './controllers/SessionController.js';
 import ProductController from './controllers/ProductController.js';
 import multer from 'multer';
 import multerConfig from '../src/config/multer.cjs'
-import authMiddleware from './Middleware/auth.js'
+import authMiddleware from './app/Middleware/auth.js';
 import CategoriesController from './controllers/CategoriesController.js';
-import adminMiddleware from './Middleware/admin.js';
+import adminMiddleware from './app/Middleware/admin.js';
 import OrderController from './controllers/OrderController.js';
 
 /*
@@ -26,7 +26,7 @@ const routers = new Router();
 const upload = multer(multerConfig )
 
 routers.post('/users', UserController.store);
-routers.post('/session', SessionController.store);
+routers.post('/sessions', SessionController.store);
 
 routers.use(authMiddleware); // todas as rotas a partir daqui vão exigir o token
 routers.post('/products',adminMiddleware,upload.single("file"), ProductController.store);
