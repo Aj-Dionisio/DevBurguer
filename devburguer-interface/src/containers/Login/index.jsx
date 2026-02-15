@@ -1,10 +1,27 @@
-import { Container, Form, LeftContainer, RightContainer, Title, InputContainer } from "./styles";
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 
+import { Container, Form, LeftContainer, RightContainer, Title, InputContainer } from "./styles";
 import {Button} from "../../components/Button"
 import Logo from '../../assets/Logo.png'
 
 
 export default function Login() {
+
+    const schema = yup.object({
+  email: yup.string().required('O e-mail é obrigatório').email('Digite um e-mail valido'),
+  password: yup.string().min(6, 'a senha deve ter no minimo 6 caracteres').required('Digite sua senha'),
+}).required(); /*validação de dados,se estão de acordo com o que estamos pedindo*/
+
+  const { register, handleSubmit, formState:{ errors } } = useForm({
+    resolver: yupResolver(schema)
+  });
+  const onSubmit = data => console.log(data);
+
+
+
+
     return (
         <Container>
             <LeftContainer>
@@ -17,19 +34,21 @@ export default function Login() {
                     <br />
                     Acesse com seu <span>Login e senha.</span>
                 </Title>
-                <Form>
+                <Form onSubmit={handleSubmit(onSubmit)}>
                     <InputContainer>
                         <label>Email: </label>
-                        <input type="email"/>
+                        <input type="email" {...register("email")}/>
+                        <p>{errors?.email?.message}</p>
                     </InputContainer>
 
                     <InputContainer>
                         <label>Senha: </label>
-                        <input type="password"/>
+                        <input type="password" {...register("password")} />
+                        <p>{errors?.password?.message}</p>
                     </InputContainer>
 
                     
-                    <Button>Entrar</Button>
+                    <Button type="submit">Entrar</Button>
 
                 </Form>
                 <p>Não possui conta? <a>Clique aqui!</a></p>
