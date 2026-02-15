@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components"; /*importando somnente o createGlobalSytele do styled components*/
 
-const globalStyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
 
     *{
         margin:0;
@@ -16,4 +16,4 @@ const globalStyles = createGlobalStyle`
 
 `;
 
-export default globalStyles;
+export default GlobalStyles;
