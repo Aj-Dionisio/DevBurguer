@@ -72,10 +72,6 @@ export const Title = styled.h2`
         color:#9758a6;
         font-family: "Road Rage", sans-serif;
     }
-
-
-
-
 `;
 
 export const Form = styled.form`
@@ -110,6 +106,14 @@ export const InputContainer = styled.div`
             font-weight: 600;
              color: #fff;
 
+        }
+
+        p{
+            font-size: 14px;
+            line-height:80%;
+            color:#cf3057;
+            font-weight:600;
+            height: 10px;
         }
 
 `;

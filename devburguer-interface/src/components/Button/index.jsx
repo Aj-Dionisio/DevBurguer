@@ -6,8 +6,8 @@ import PropTypes from "prop-types";
 
 
 
-export function Button ({children}){
-    return <ContainerButton>{children}</ContainerButton>
+export function Button ({children, ...props}){
+    return <ContainerButton{...props}>{children}</ContainerButton>
 
 }
 
