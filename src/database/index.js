@@ -18,8 +18,16 @@ class Database {
 
   init() {
     this.connection = new Sequelize(
-      databaseConfig,
-    ); /*this = Database, essa é a conxão com o db*/
+  databaseConfig.development.database,
+  databaseConfig.development.username,
+  databaseConfig.development.password,
+  {
+    host: databaseConfig.development.host,
+    dialect: databaseConfig.development.dialect,
+    port: databaseConfig.development.port,
+    define: databaseConfig.development.define,
+  }
+); /*this = Database, essa é a conxão com o db*/
     models.map((model) => model.init(this.connection)).map(model => model.associate && model.associate(this.connection.models));
   }
 

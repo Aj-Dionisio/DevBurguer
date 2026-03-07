@@ -15,7 +15,7 @@ const authMiddleware = (req, res, next) => {
 
   
   try {
-    jwt.verify(token,authConfig.secret, (error, decoded) =>{
+    jwt.verify(token,'fe39382918216e44b56ca743c19e4e15', (error, decoded) =>{
         if(error){
             throw Error();
         }
@@ -33,3 +33,5 @@ const authMiddleware = (req, res, next) => {
 };
 
 export default authMiddleware;
+
+
